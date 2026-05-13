@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-dm-sans: "DM Sans", system-ui, sans-serif;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --dark: #0d0d0d;
+  --dark-2: #161616;
+  --dark-3: #1f1f1f;
+  --dark-4: #2a2a2a;
+  --muted: #888888;
+  --text: #e8e4dc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: var(--font-dm-sans);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dark-4);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+@layer components {
+  .section-tag {
+    @apply flex items-center gap-4 text-xs tracking-[0.25em] uppercase text-gold mb-5;
+  }
+  .section-tag::before {
+    content: "";
+    @apply inline-block w-8 h-px bg-gold flex-shrink-0;
+  }
+  .btn-primary {
+    @apply bg-gold text-dark px-8 py-3.5 text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-gold-light cursor-pointer border-none;
+  }
+  .btn-ghost {
+    @apply bg-transparent text-text px-6 py-3.5 text-xs tracking-[0.1em] border border-dark-4 transition-all duration-300 hover:border-gold hover:text-gold cursor-pointer;
+  }
+  .gold-line {
+    @apply w-8 h-px bg-gold inline-block;
+  }
+}
